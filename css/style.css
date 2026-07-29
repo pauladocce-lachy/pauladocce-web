@@ -1,0 +1,613 @@
+/* ===========================
+   Paula Docce
+   Nature • Bio • Minimal
+=========================== */
+
+:root{
+
+    --bg:#F7F5F0;
+    --white:#ffffff;
+
+    --green:#5B6F5C;
+    --green-dark:#455646;
+
+    --text:#2F332F;
+    --text-light:#6E746E;
+
+    --border:#E5E3DD;
+
+    --radius:18px;
+
+    --shadow:
+        0 12px 35px rgba(0,0,0,.08);
+
+    --transition:.35s ease;
+
+    --max-width:1240px;
+
+}
+
+
+
+/* ===========================
+RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    line-height:1.7;
+
+    overflow-x:hidden;
+
+}
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+.container{
+
+    width:min(92%,var(--max-width));
+
+    margin:auto;
+
+}
+
+
+
+/* ===========================
+TYPOGRAPHY
+=========================== */
+
+h1,h2,h3{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-weight:600;
+
+}
+
+h1{
+
+    font-size:clamp(3rem,7vw,6rem);
+
+    line-height:1;
+
+    margin-bottom:30px;
+
+}
+
+h2{
+
+    font-size:3rem;
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+h3{
+
+    font-size:1.8rem;
+
+    margin-bottom:15px;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+}
+
+
+
+/* ===========================
+HEADER
+=========================== */
+
+header{
+
+    position:fixed;
+
+    width:100%;
+
+    top:0;
+
+    left:0;
+
+    z-index:999;
+
+    transition:.4s;
+
+}
+
+.navbar{
+
+    width:min(94%,1300px);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 0;
+
+}
+
+.logo{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:2rem;
+
+    letter-spacing:2px;
+
+}
+
+.logo span{
+
+    color:var(--green);
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:38px;
+
+}
+
+.nav-links a{
+
+    position:relative;
+
+    font-weight:500;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--green);
+
+    transition:var(--transition);
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+
+
+/* ===========================
+BUTTONS
+=========================== */
+
+.btn-nav,
+.btn-primary{
+
+    background:var(--green);
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    transition:var(--transition);
+
+    font-weight:600;
+
+}
+
+.btn-nav:hover,
+.btn-primary:hover{
+
+    background:var(--green-dark);
+
+    transform:translateY(-2px);
+
+}
+
+.btn-secondary{
+
+    border:1px solid white;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:50px;
+
+    transition:var(--transition);
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:var(--green);
+
+}
+
+
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    background:
+        linear-gradient(rgba(0,0,0,.40),rgba(0,0,0,.40)),
+        url("../images/hero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:white;
+
+    padding:0 20px;
+
+}
+
+.hero-content{
+
+    max-width:850px;
+
+}
+
+.hero-subtitle{
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    color:#F0F0F0;
+
+    margin-bottom:25px;
+
+    font-size:.9rem;
+
+}
+
+.hero-text{
+
+    color:#F2F2F2;
+
+    max-width:650px;
+
+    margin:auto;
+
+    margin-bottom:45px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+/* ===========================
+SECTIONS
+=========================== */
+
+section{
+
+    padding:120px 0;
+
+}
+
+
+
+/* ===========================
+ABOUT
+=========================== */
+
+#about p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    text-align:center;
+
+    font-size:1.1rem;
+
+}
+
+
+
+/* ===========================
+SERVICES
+=========================== */
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+}
+
+.services-grid article{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.services-grid article:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+/* ===========================
+PRICING
+=========================== */
+
+#pricing-table{
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    padding:45px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+
+/* ===========================
+GALLERY
+=========================== */
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:18px;
+
+}
+
+.gallery-grid img{
+
+    border-radius:18px;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    transition:.45s;
+
+}
+
+.gallery-grid img:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+
+/* ===========================
+REVIEWS
+=========================== */
+
+#google-reviews-widget{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+
+
+/* ===========================
+CONTACT
+=========================== */
+
+.contact-wrapper{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+.contact-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.map{
+
+    min-height:420px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:#ddd;
+
+}
+
+
+
+/* ===========================
+FOOTER
+=========================== */
+
+footer{
+
+    background:#F0EEE8;
+
+    text-align:center;
+
+    padding:40px;
+
+    color:var(--text-light);
+
+}
+
+
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:950px){
+
+.nav-links{
+
+    display:none;
+
+}
+
+.contact-wrapper{
+
+    grid-template-columns:1fr;
+
+}
+
+h2{
+
+    font-size:2.4rem;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+    text-align:left;
+
+}
+
+.hero-buttons{
+
+    justify-content:flex-start;
+
+}
+
+h1{
+
+    font-size:3.2rem;
+
+}
+
+section{
+
+    padding:90px 0;
+
+}
+
+}
