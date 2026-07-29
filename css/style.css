@@ -1661,3 +1661,23 @@ header:not(.scrolled) .nav-links a.active{
     }
 
 }
+
+.pricing-navigation{
+
+    padding:40px 0;
+
+    background:#F8F7F2;
+
+}
+
+.pricing-navigation .container{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
