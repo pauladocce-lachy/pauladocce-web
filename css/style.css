@@ -336,7 +336,7 @@ header.scrolled{
         rgba(40,55,40,.30),
         rgba(40,55,40,.25)
     ),
-    url("../images/hero.jpg");
+    url("../images/hero.jpg.png");
 
     background-size:cover;
     background-position:center;
