@@ -1,23 +1,36 @@
-const { data } = await db.auth.getSession();
+document.addEventListener("DOMContentLoaded", async () => {
 
-if (!data.session) {
+    const { data } = await db.auth.getSession();
 
-    window.location.href = "index.html";
-
-}
-
-const logout = document.getElementById("logoutBtn");
-
-if (logout) {
-
-    logout.addEventListener("click", async (e) => {
-
-        e.preventDefault();
-
-        await db.auth.signOut();
+    if (!data.session) {
 
         window.location.href = "index.html";
+        return;
 
-    });
+    }
 
-}
+    const logout = document.getElementById("logoutBtn");
+
+    if (logout) {
+
+        logout.addEventListener("click", async (e) => {
+
+            e.preventDefault();
+
+            const { error } = await db.auth.signOut();
+
+            if (!error) {
+
+                window.location.href = "index.html";
+
+            } else {
+
+                console.error(error);
+
+            }
+
+        });
+
+    }
+
+});
