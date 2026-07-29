@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin ceníku — Kadeřnictví Paula Docce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="logo" href="index.html">Paula <span>Docce</span></a>
+    <span class="eyebrow" style="margin:0;">Admin</span>
+  </nav>
+</header>
+
+<main>
+  <section class="container" id="admin-gate">
+    <div class="admin-gate">
+      <span class="eyebrow">Admin ceníku</span>
+      <h1>Přihlášení</h1>
+      <p class="muted">Vyplň tři věci níže. Nic se přitom neukládá nikam ven — jen do tohoto prohlížeče.</p>
+
+      <div class="admin-note" style="text-align:left;">
+        Přesný postup krok za krokem (i s obrázky, kam kliknout) je v
+        souboru <strong>README.md</strong>. Ve zkratce: první dvě pole
+        jsou vidět v adrese tvého webu na GitHubu
+        (<code>github.com/UŽIVATEL/NÁZEV-REPOZITÁŘE</code>). Token je
+        heslo, které si jednorázově vyrobíš na GitHubu — návod je v README.
+      </div>
+
+      <form id="login-form">
+        <div class="field">
+          <label for="owner-input">Uživatelské jméno na GitHubu</label>
+          <input type="text" id="owner-input" placeholder="např. jana123" autocomplete="off" required>
+        </div>
+        <div class="field">
+          <label for="repo-input">Název repozitáře</label>
+          <input type="text" id="repo-input" placeholder="např. pauladocce-web" autocomplete="off" required>
+        </div>
+        <div class="field">
+          <label for="token-input">GitHub token (heslo pro úpravy)</label>
+          <input type="password" id="token-input" placeholder="github_pat_..." autocomplete="off" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Přihlásit se</button>
+      </form>
+      <p id="gate-status" class="admin-status" style="margin-top:20px;"></p>
+    </div>
+  </section>
+
+  <section class="container" id="admin-editor" hidden style="padding: 48px 24px 96px;">
+    <div class="admin-toolbar">
+      <div>
+        <span class="eyebrow">Admin ceníku</span>
+        <h1 class="mt-0" style="font-size:1.8rem;">Úprava ceníku</h1>
+      </div>
+      <button class="btn btn-ghost" id="logout-btn" type="button">Odhlásit se</button>
+    </div>
+
+    <div class="admin-note">
+      Změny se uloží až po kliknutí na <strong>Uložit změny</strong> — commitnou se přímo
+      do <code>data/cenik.json</code>. Na živém webu se projeví za pár desítek vteřin,
+      jakmile GitHub Pages web znovu sestaví.
+    </div>
+
+    <div class="field" style="max-width:640px; margin-bottom:32px;">
+      <label for="admin-note">Poznámka pod ceníkem</label>
+      <textarea id="admin-note" placeholder="Např. Ceny jsou orientační…"></textarea>
+    </div>
+
+    <div id="admin-categories"></div>
+
+    <button class="btn btn-ghost" id="add-category-btn" type="button">+ přidat kategorii</button>
+
+    <div class="admin-actions">
+      <button class="btn btn-primary" id="save-btn" type="button">Uložit změny</button>
+    </div>
+
+    <p id="admin-status" class="admin-status"></p>
+  </section>
+</main>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

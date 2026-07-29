@@ -1,0 +1,37 @@
+{
+  "updated": "2026-07-29",
+  "note": "Ceny jsou orientační. Konečná cena se odvíjí od délky a hustoty vlasů.",
+  "categories": [
+    {
+      "name": "Střihy",
+      "items": [
+        { "name": "Dámský střih", "note": "mytí, střih, foukaná", "price": "od 490 Kč" },
+        { "name": "Pánský střih", "note": "mytí, střih, styling", "price": "od 350 Kč" },
+        { "name": "Dětský střih", "note": "do 10 let", "price": "od 250 Kč" },
+        { "name": "Úprava vousů", "note": "", "price": "150 Kč" }
+      ]
+    },
+    {
+      "name": "Barvení",
+      "items": [
+        { "name": "Barvení jednou barvou", "note": "vč. mytí a foukané", "price": "od 890 Kč" },
+        { "name": "Melír / Balayage", "note": "podle rozsahu", "price": "od 1490 Kč" },
+        { "name": "Tónování", "note": "", "price": "od 490 Kč" }
+      ]
+    },
+    {
+      "name": "Péče",
+      "items": [
+        { "name": "Regenerační kúra", "note": "keratin, botox na vlasy", "price": "od 350 Kč" },
+        { "name": "Konzultace o vlasové péči", "note": "30 min", "price": "zdarma" }
+      ]
+    },
+    {
+      "name": "Účesy",
+      "items": [
+        { "name": "Svatební účes", "note": "vč. zkoušky", "price": "od 1990 Kč" },
+        { "name": "Společenský účes", "note": "", "price": "od 890 Kč" }
+      ]
+    }
+  ]
+}
