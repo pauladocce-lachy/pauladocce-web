@@ -1046,21 +1046,6 @@ footer{
 
 }
 
-.btn-secondary{
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(10px);
-
-    border:1px solid rgba(255,255,255,.35);
-
-}
-
-.btn-secondary:hover{
-
-    background:rgba(255,255,255,.95);
-
-}
 
 
 
