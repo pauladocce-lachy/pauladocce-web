@@ -1485,3 +1485,175 @@ header:not(.scrolled) .nav-links a.active{
     line-height:1.8;
 
 }
+
+/* ==================================================
+   CENÍK
+================================================== */
+
+.page-hero{
+
+    padding:170px 0 90px;
+
+    background:linear-gradient(
+        rgba(40,55,40,.60),
+        rgba(40,55,40,.60)
+    ),
+    url("../images/hero.webp") center/cover no-repeat;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.page-hero h1{
+
+    font-size:3.2rem;
+
+    margin:20px 0;
+
+    text-shadow:0 4px 18px rgba(0,0,0,.35);
+
+}
+
+.page-hero p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#F4F4F4;
+
+    line-height:1.8;
+
+}
+
+.pricing-page{
+
+    padding:90px 0;
+
+    background:#F8F7F2;
+
+}
+
+.pricing-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    margin-bottom:45px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    border:1px solid rgba(89,109,88,.08);
+
+    transition:.35s;
+
+}
+
+.pricing-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 22px 50px rgba(0,0,0,.12);
+
+}
+
+.pricing-card h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:2.3rem;
+
+    color:var(--primary);
+
+    margin-bottom:25px;
+
+}
+
+.pricing-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+}
+
+.pricing-table thead{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.pricing-table th{
+
+    padding:18px;
+
+    font-weight:600;
+
+    text-align:center;
+
+}
+
+.pricing-table th:first-child{
+
+    text-align:left;
+
+}
+
+.pricing-table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #ECECEC;
+
+    text-align:center;
+
+    transition:.25s;
+
+}
+
+.pricing-table td:first-child{
+
+    text-align:left;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.pricing-table tbody tr:hover{
+
+    background:#F3F7F2;
+
+}
+
+.pricing-card{
+
+    overflow-x:auto;
+
+}
+
+@media (max-width:768px){
+
+    .page-hero h1{
+
+        font-size:2.4rem;
+
+    }
+
+    .pricing-table{
+
+        min-width:700px;
+
+    }
+
+}
