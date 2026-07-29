@@ -315,21 +315,27 @@ header.scrolled{
 
     padding:15px 32px;
 
-    border:1px solid white;
-
     border-radius:50px;
+
+    background:var(--primary);
 
     color:white;
 
+    font-weight:600;
+
     transition:var(--transition);
+
+    box-shadow:0 10px 25px rgba(89,109,88,.25);
 
 }
 
 .btn-secondary:hover{
 
-    background:white;
+    background:var(--primary-dark);
 
-    color:var(--primary);
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 35px rgba(89,109,88,.35);
 
 }
 
