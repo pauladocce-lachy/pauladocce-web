@@ -1512,7 +1512,9 @@ header:not(.scrolled) .nav-links a.active{
 
     margin:20px 0;
 
-    text-shadow:0 4px 18px rgba(0,0,0,.35);
+    color:#F7F3EA;
+
+    text-shadow:0 4px 18px rgba(0,0,0,.45);
 
 }
 
@@ -1522,9 +1524,11 @@ header:not(.scrolled) .nav-links a.active{
 
     margin:auto;
 
-    color:#F4F4F4;
+    color:#EFE8DB;
 
     line-height:1.8;
+
+    text-shadow:0 2px 10px rgba(0,0,0,.35);
 
 }
 
