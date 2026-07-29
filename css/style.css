@@ -1445,3 +1445,31 @@ header:not(.scrolled) .nav-links a.active{
     padding-bottom:4px;
 
 }
+
+/* ==========================================
+   TRUSTINDEX
+========================================== */
+
+#reviews{
+
+    background:var(--background-light);
+
+}
+
+#trustindex-widget{
+
+    margin-top:50px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+}
+
+#trustindex-widget iframe{
+
+    border-radius:24px;
+
+}
