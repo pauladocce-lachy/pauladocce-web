@@ -369,13 +369,6 @@ header.scrolled{
     background-attachment:fixed;
 
 }
-    background-size:cover;
-
-    background-position:center;
-
-    background-attachment:fixed;
-
-}
 
 .hero::before{
 
@@ -553,6 +546,8 @@ section.show{
         justify-content:flex-start;
 
     }
+
+   }
 
    /* ==========================================================
    Paula Docce
