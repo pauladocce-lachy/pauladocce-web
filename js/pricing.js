@@ -17,7 +17,9 @@ async function loadPricing() {
 
         data.categories.forEach(category => {
 
-            const container = document.getElementById(`pricing-${category.id}`);
+            const container = document.querySelector(
+    `#pricing-${category.id} .pricing-table-container`
+);
 
             if (!container) return;
 
