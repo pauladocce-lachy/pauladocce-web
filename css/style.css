@@ -362,7 +362,7 @@ header.scrolled{
         rgba(30,45,30,.35),
       rgba(30,45,30,.40)
     ),
-    url("../images/hero.jpg.png");
+    url("../images/hero.webp");
 
     background-size:cover;
     background-position:center;
