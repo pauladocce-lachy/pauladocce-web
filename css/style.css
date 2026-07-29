@@ -330,11 +330,19 @@ header.scrolled{
     text-align:center;
 
     overflow:hidden;
-
+   
     background:
-    linear-gradient(rgba(34,45,34,.42),rgba(34,45,34,.42)),
+    linear-gradient(
+        rgba(40,55,40,.30),
+        rgba(40,55,40,.25)
+    ),
     url("../images/hero.jpg");
 
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+}
     background-size:cover;
 
     background-position:center;
