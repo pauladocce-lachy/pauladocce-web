@@ -1681,3 +1681,9 @@ header:not(.scrolled) .nav-links a.active{
     flex-wrap:wrap;
 
 }
+
+.pricing-card{
+
+    scroll-margin-top:120px;
+
+}
