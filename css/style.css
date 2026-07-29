@@ -1363,3 +1363,85 @@ header.scrolled .nav-links a{
     text-shadow:none;
 
 }
+
+/* ==========================================
+   LIGHTBOX
+========================================== */
+
+#lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:99999;
+
+}
+
+#lightbox.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+#lightbox img{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:16px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+}
+
+#closeLightbox{
+
+    position:absolute;
+
+    top:25px;
+
+    right:35px;
+
+    font-size:3rem;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.nav-links a.active{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+header:not(.scrolled) .nav-links a.active{
+
+    color:white;
+
+    border-bottom:2px solid white;
+
+    padding-bottom:4px;
+
+}
