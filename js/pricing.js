@@ -1,6 +1,6 @@
 // =========================================
 // Paula Docce
-// pricing.js
+// pricing.js 
 // =========================================
 
 async function loadPricing() {
