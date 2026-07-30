@@ -1,6 +1,6 @@
 // =========================================
 // Paula Docce
-// script.js 
+// script.js
 // =========================================
 
 // ---------- Header při scrollování ----------
@@ -36,9 +36,7 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.15
 });
 
-sections.forEach(section => {
-    observer.observe(section);
-});
+sections.forEach(section => observer.observe(section));
 
 
 // ---------- Tlačítko Nahoru ----------
@@ -76,11 +74,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     anchor.addEventListener("click", function (e) {
 
-        e.preventDefault();
-
         const target = document.querySelector(this.getAttribute("href"));
 
         if (!target) return;
+
+        e.preventDefault();
 
         target.scrollIntoView({
             behavior: "smooth",
@@ -89,66 +87,73 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     });
 
-    // =========================================
+});
+
+
+// =========================================
 // Gallery Lightbox
 // =========================================
 
 const galleryImages = document.querySelectorAll(".gallery-grid img");
 
-const lightbox = document.createElement("div");
-lightbox.id = "lightbox";
+if (galleryImages.length) {
 
-lightbox.innerHTML = `
-    <span id="closeLightbox">&times;</span>
-    <img id="lightboxImage" src="" alt="">
-`;
+    const lightbox = document.createElement("div");
 
-document.body.appendChild(lightbox);
+    lightbox.id = "lightbox";
 
-const lightboxImage = document.getElementById("lightboxImage");
-const closeLightbox = document.getElementById("closeLightbox");
+    lightbox.innerHTML = `
+        <span id="closeLightbox">&times;</span>
+        <img id="lightboxImage" src="" alt="">
+    `;
 
-galleryImages.forEach(img => {
+    document.body.appendChild(lightbox);
 
-    img.addEventListener("click", () => {
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
 
-        lightbox.classList.add("active");
-        lightboxImage.src = img.src;
+    galleryImages.forEach(img => {
 
-        document.body.style.overflow = "hidden";
+        img.addEventListener("click", () => {
+
+            lightbox.classList.add("active");
+            lightboxImage.src = img.src;
+            document.body.style.overflow = "hidden";
+
+        });
 
     });
 
-});
-
-closeLightbox.addEventListener("click", () => {
-
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "";
-
-});
-
-lightbox.addEventListener("click", (e) => {
-
-    if (e.target === lightbox) {
+    closeLightbox.addEventListener("click", () => {
 
         lightbox.classList.remove("active");
         document.body.style.overflow = "";
 
-    }
+    });
 
-});
+    lightbox.addEventListener("click", (e) => {
 
-document.addEventListener("keydown", (e) => {
+        if (e.target === lightbox) {
 
-    if (e.key === "Escape") {
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
 
-        lightbox.classList.remove("active");
-        document.body.style.overflow = "";
+        }
 
-    }
+    });
 
-});
+    document.addEventListener("keydown", (e) => {
+
+        if (e.key === "Escape") {
+
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+}
 
 
 // =========================================
@@ -187,28 +192,30 @@ window.addEventListener("scroll", () => {
 
 });
 
-});
 
 // =========================================
 // Mobile menu
 // =========================================
 
 const menuToggle = document.getElementById("menuToggle");
-
 const navLinks = document.querySelector(".nav-links");
 
-menuToggle.addEventListener("click", () => {
+if (menuToggle && navLinks) {
 
-    navLinks.classList.toggle("active");
+    menuToggle.addEventListener("click", () => {
 
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("active");
+        navLinks.classList.toggle("active");
 
     });
 
-});
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+        });
+
+    });
+
+}
