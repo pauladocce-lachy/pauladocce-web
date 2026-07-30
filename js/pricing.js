@@ -5,78 +5,83 @@
 
 async function loadPricing() {
 
-    try {
+    const { data, error } = await db
+        .from("pricing")
+        .select("*")
+        .order("category")
+        .order("sort_order");
 
-        const response = await fetch("data/pricing.json");
+    if (error) {
 
-        if (!response.ok) {
-            throw new Error("Nepodařilo se načíst pricing.json");
-        }
+        console.error(error);
+        return;
 
-        const data = await response.json();
+    }
 
-        data.categories.forEach(category => {
+    const categories = {
 
-            const container = document.querySelector(
-    `#pricing-${category.id} .pricing-table-container`
-);
+        damske: "Dámské",
+        panske: "Pánské",
+        detske: "Dětské"
 
-            if (!container) return;
+    };
 
-            let table = `
-                <table class="pricing-table">
+    Object.keys(categories).forEach(category => {
 
-                    <thead>
+        const container = document.querySelector(
+            `#pricing-${category} .pricing-table-container`
+        );
 
-                        <tr>
+        if (!container) return;
 
-                            <th>Služba</th>
-                            <th>Krátké</th>
-                            <th>Střední</th>
-                            <th>Dlouhé</th>
+        const services = data.filter(item => item.category === category);
 
-                        </tr>
+        let table = `
+            <table class="pricing-table">
 
-                    </thead>
+                <thead>
 
-                    <tbody>
-            `;
-
-            category.services.forEach(service => {
-
-                table += `
                     <tr>
 
-                        <td>${service.name}</td>
-
-                        <td>${service.shortHair || "-"}</td>
-
-                        <td>${service.mediumHair || "-"}</td>
-
-                        <td>${service.longHair || "-"}</td>
+                        <th>Služba</th>
+                        <th>Krátké</th>
+                        <th>Střední</th>
+                        <th>Dlouhé</th>
 
                     </tr>
-                `;
 
-            });
+                </thead>
+
+                <tbody>
+        `;
+
+        services.forEach(service => {
 
             table += `
-                    </tbody>
+                <tr>
 
-                </table>
+                    <td>${service.service}</td>
+
+                    <td>${service.short_price || "-"}</td>
+
+                    <td>${service.medium_price || "-"}</td>
+
+                    <td>${service.long_price || "-"}</td>
+
+                </tr>
             `;
-
-            container.innerHTML = table;
 
         });
 
-    }
+        table += `
+                </tbody>
 
-    catch (error) {
+            </table>
+        `;
 
-        console.error(error);
+        container.innerHTML = table;
 
-    }
+    });
 
 }
 
