@@ -182,7 +182,9 @@ async function savePricing() {
 
     }
 
-    alert("✅ Ceník byl uložen.");
+    await loadPricing();
+
+alert("✅ Ceník byl úspěšně uložen a synchronizován.");
 
 }
 
