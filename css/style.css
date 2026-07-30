@@ -1765,12 +1765,15 @@ header:not(.scrolled) .nav-links a.active{
 
     }
 
-    .nav-links a{
+   .nav-links a{
 
-        display:block;
-        padding:18px;
-        border-bottom:1px solid var(--border);
+    display:block;
+    padding:18px;
+    border-bottom:1px solid var(--border);
 
-    }
+    color:var(--text);
+    text-shadow:none;
+
+}
 
 }
