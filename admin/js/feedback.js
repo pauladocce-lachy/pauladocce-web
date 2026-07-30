@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sendBtn = document.getElementById("sendFeedbackBtn");
 
     sendBtn.addEventListener("click", sendFeedback);
+    loadFeedback();
 
 });
 
@@ -48,8 +49,53 @@ async function sendFeedback() {
 
     }
 
-    textarea.value = "";
+   textarea.value = "";
 
-    alert("✅ Připomínka byla úspěšně odeslána.");
+await loadFeedback();
+
+alert("✅ Připomínka byla úspěšně odeslána.");
+}
+
+async function loadFeedback() {
+
+    const { data, error } = await db
+        .from("feedback")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+
+        console.error(error);
+        return;
+
+    }
+
+    const list = document.getElementById("feedbackList");
+
+    list.innerHTML = "";
+
+    data.forEach(item => {
+
+        const date = new Date(item.created_at).toLocaleString("cs-CZ");
+
+        list.innerHTML += `
+
+            <div class="feedback-item">
+
+                <div class="feedback-top">
+
+                    <strong>${item.status}</strong>
+
+                    <span>${date}</span>
+
+                </div>
+
+                <p>${item.message}</p>
+
+            </div>
+
+        `;
+
+    });
 
 }
