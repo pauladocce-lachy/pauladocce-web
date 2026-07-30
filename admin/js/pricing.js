@@ -107,7 +107,15 @@ async function loadPricing() {
 
         <input class="long-price" type="text" value="${service.long_price}">
 
-        <button class="delete-btn">🗑️</button>
+        <div class="row-actions">
+
+    <button class="move-up">⬆️</button>
+
+    <button class="move-down">⬇️</button>
+
+    <button class="delete-btn">🗑️</button>
+
+</div>
 
     </div>
 `;
