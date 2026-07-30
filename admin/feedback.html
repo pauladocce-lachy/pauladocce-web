@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Připomínky | Paula Docce Admin</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <header class="admin-header">
+
+        <h1>Připomínky webmasterovi</h1>
+
+        <a href="dashboard.html" class="logout-btn">
+            ← Dashboard
+        </a>
+
+    </header>
+
+    <section class="feedback-page">
+
+        <div class="feedback-card">
+
+            <h2>Napište připomínku</h2>
+
+            <p>
+                Máte nápad nebo potřebujete něco upravit na webu?
+                Napište zprávu a odešlete ji.
+            </p>
+
+            <textarea
+                id="feedbackMessage"
+                placeholder="Sem napište připomínku..."
+            ></textarea>
+
+            <button id="sendFeedbackBtn" class="save-btn">
+                Odeslat připomínku
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/feedback.js"></script>
+
+</body>
+
+</html>
