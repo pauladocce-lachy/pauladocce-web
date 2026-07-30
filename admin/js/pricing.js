@@ -68,6 +68,22 @@ async function loadPricing() {
                 <h2>${categories[category]}</h2>
         `;
 
+        html += `
+    <div class="service-row service-header">
+
+        <div>Služba</div>
+
+        <div>Krátké</div>
+
+        <div>Střední</div>
+
+        <div>Dlouhé</div>
+
+        <div></div>
+
+    </div>
+`;
+
         services.forEach(service => {
 
             html += `
