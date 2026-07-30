@@ -11,6 +11,9 @@ async function loadPricing() {
         .order("category")
         .order("sort_order");
 
+    console.log("DATA:", data);
+console.log("ERROR:", error);
+
     if (error) {
 
         console.error(error);
@@ -114,11 +117,3 @@ if (menuToggle && navLinks) {
 
 }
 
-const { data, error } = await db
-    .from("pricing")
-    .select("*")
-    .order("category")
-    .order("sort_order");
-
-console.log("DATA:", data);
-console.log("ERROR:", error);
