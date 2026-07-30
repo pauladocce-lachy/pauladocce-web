@@ -86,21 +86,21 @@ async function loadPricing() {
 
         services.forEach(service => {
 
-            html += `
-                <div class="service-row">
+           html += `
+    <div class="service-row" data-id="${service.id}">
 
-                    <input type="text" value="${service.service}">
+        <input class="service-name" type="text" value="${service.service}">
 
-                    <input type="text" value="${service.short_price}">
+        <input class="short-price" type="text" value="${service.short_price}">
 
-                    <input type="text" value="${service.medium_price}">
+        <input class="medium-price" type="text" value="${service.medium_price}">
 
-                    <input type="text" value="${service.long_price}">
+        <input class="long-price" type="text" value="${service.long_price}">
 
-                    <button>🗑️</button>
+        <button class="delete-btn">🗑️</button>
 
-                </div>
-            `;
+    </div>
+`;
 
         });
 
@@ -117,5 +117,52 @@ async function loadPricing() {
         container.innerHTML += html;
 
     });
+
+}
+
+const saveBtn = document.getElementById("saveAllBtn");
+
+saveBtn.addEventListener("click", savePricing);
+
+async function savePricing() {
+
+    const rows = document.querySelectorAll(".service-row");
+
+    for (const row of rows) {
+
+        // Přeskočí hlavičku tabulky
+        if (row.classList.contains("service-header")) continue;
+
+        const id = row.dataset.id;
+
+        const service = row.querySelector(".service-name").value;
+
+        const short_price = row.querySelector(".short-price").value;
+
+        const medium_price = row.querySelector(".medium-price").value;
+
+        const long_price = row.querySelector(".long-price").value;
+
+        const { error } = await db
+            .from("pricing")
+            .update({
+
+                service,
+                short_price,
+                medium_price,
+                long_price
+
+            })
+            .eq("id", id);
+
+        if (error) {
+
+            console.error(error);
+
+        }
+
+    }
+
+    alert("✅ Ceník byl uložen.");
 
 }
