@@ -166,3 +166,30 @@ async function savePricing() {
     alert("✅ Ceník byl uložen.");
 
 }
+
+document.addEventListener("click", async (e) => {
+
+    if (!e.target.classList.contains("delete-btn")) return;
+
+    const row = e.target.closest(".service-row");
+
+    const id = row.dataset.id;
+
+    if (!confirm("Opravdu chcete smazat tuto službu?")) return;
+
+    const { error } = await db
+        .from("pricing")
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+
+        console.error(error);
+        alert("❌ Nepodařilo se smazat službu.");
+        return;
+
+    }
+
+    row.remove();
+
+});
