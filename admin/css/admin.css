@@ -442,3 +442,197 @@ button:hover{
     }
 
 }
+
+/* ==========================================================
+   Pricing
+========================================================== */
+
+.header-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.btn-secondary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    background:#FFF;
+
+    border:1px solid var(--border);
+
+    color:var(--text);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.btn-secondary:hover{
+
+    background:#F3F5F2;
+
+}
+
+#pricingContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:35px;
+
+}
+
+.category-card{
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.category-card h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:var(--primary);
+
+    font-size:2rem;
+
+    margin-bottom:30px;
+
+}
+
+.service-row{
+
+    display:grid;
+
+    grid-template-columns:2fr repeat(3,1fr) auto;
+
+    gap:15px;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.service-row input{
+
+    margin:0;
+
+}
+
+.service-row button{
+
+    margin:0;
+
+    padding:12px 16px;
+
+    border-radius:12px;
+
+    background:#D9534F;
+
+}
+
+.service-row button:hover{
+
+    background:#C9302C;
+
+}
+
+.add-service{
+
+    margin-top:20px;
+
+}
+
+.add-service button{
+
+    width:100%;
+
+    background:var(--primary);
+
+}
+
+.pricing-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-top:40px;
+
+}
+
+#saveAllBtn{
+
+    min-width:220px;
+
+}
+
+@media(max-width:900px){
+
+    .service-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .pricing-actions{
+
+        justify-content:center;
+
+    }
+
+    #saveAllBtn{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .header-buttons{
+
+        width:100%;
+
+        flex-direction:column;
+
+    }
+
+    .btn-secondary,
+
+    .logout-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
