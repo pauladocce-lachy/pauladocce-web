@@ -1709,3 +1709,68 @@ header:not(.scrolled) .nav-links a.active{
     overflow:hidden;
 
 }
+
+/* ==========================
+   MOBILE MENU
+========================== */
+
+.menu-toggle{
+
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+    background:none;
+    border:none;
+    color:var(--text);
+
+}
+
+@media(max-width:900px){
+
+    .menu-toggle{
+
+        display:block;
+
+    }
+
+    .btn-nav{
+
+        display:none;
+
+    }
+
+    .nav-links{
+
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        gap:0;
+        display:none;
+        box-shadow:var(--shadow);
+
+    }
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+    .nav-links li{
+
+        width:100%;
+
+    }
+
+    .nav-links a{
+
+        display:block;
+        padding:18px;
+        border-bottom:1px solid var(--border);
+
+    }
+
+}
