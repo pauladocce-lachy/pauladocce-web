@@ -636,3 +636,29 @@ button:hover{
     }
 
 }
+
+.service-header{
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+    padding-bottom:10px;
+
+    border-bottom:2px solid var(--border);
+
+}
+
+.service-header div{
+
+    text-align:center;
+
+}
+
+.service-header div:first-child{
+
+    text-align:left;
+
+}
