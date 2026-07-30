@@ -1700,3 +1700,12 @@ header:not(.scrolled) .nav-links a.active{
     opacity: 1;
 
 }
+
+.reviews-wrapper iframe{
+
+    width:100%;
+    border:none;
+    border-radius:24px;
+    overflow:hidden;
+
+}
