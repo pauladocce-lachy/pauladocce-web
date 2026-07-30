@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-    // Kontrola přihlášení
+    // Kontrola přihlášení (hlavní projekt)
     const { data } = await db.auth.getSession();
 
     if (!data.session) {
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sendBtn = document.getElementById("sendFeedbackBtn");
 
     sendBtn.addEventListener("click", sendFeedback);
+
     loadFeedback();
 
 });
@@ -26,12 +27,11 @@ async function sendFeedback() {
     if (!message) {
 
         alert("Napište připomínku.");
-
         return;
 
     }
 
-    const { error } = await db
+    const { error } = await feedbackDb
         .from("feedback")
         .insert({
 
@@ -49,16 +49,17 @@ async function sendFeedback() {
 
     }
 
-   textarea.value = "";
+    textarea.value = "";
 
-await loadFeedback();
+    await loadFeedback();
 
-alert("✅ Připomínka byla úspěšně odeslána.");
+    alert("✅ Připomínka byla úspěšně odeslána.");
+
 }
 
 async function loadFeedback() {
 
-    const { data, error } = await db
+    const { data, error } = await feedbackDb
         .from("feedback")
         .select("*")
         .order("created_at", { ascending: false });
