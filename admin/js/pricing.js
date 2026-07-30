@@ -107,9 +107,11 @@ async function loadPricing() {
         html += `
                 <div class="add-service">
 
-                    <button>+ Přidat službu</button>
+    <button class="add-service-btn" data-category="${category}">
+        + Přidat službu
+    </button>
 
-                </div>
+</div>
 
             </div>
         `;
@@ -191,5 +193,41 @@ document.addEventListener("click", async (e) => {
     }
 
     row.remove();
+
+});
+
+document.addEventListener("click", async (e) => {
+
+    if (!e.target.classList.contains("add-service-btn")) return;
+
+    const category = e.target.dataset.category;
+
+    const { error } = await db
+        .from("pricing")
+        .insert({
+
+            category: category,
+
+            service: "Nová služba",
+
+            short_price: "0 Kč",
+
+            medium_price: "0 Kč",
+
+            long_price: "0 Kč",
+
+            sort_order: 999
+
+        });
+
+    if (error) {
+
+        console.error(error);
+        alert("Nepodařilo se přidat službu.");
+        return;
+
+    }
+
+    loadPricing();
 
 });
