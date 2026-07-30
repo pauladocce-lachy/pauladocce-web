@@ -97,7 +97,10 @@ async function loadPricing() {
         services.forEach(service => {
 
            html += `
-    <div class="service-row" data-id="${service.id}">
+    <div class="service-row"
+     data-id="${service.id}"
+     data-sort="${service.sort_order}"
+     data-category="${service.category}">
 
         <input class="service-name" type="text" value="${service.service}">
 
@@ -241,6 +244,55 @@ document.addEventListener("click", async (e) => {
         return;
 
     }
+
+    loadPricing();
+
+});
+
+document.addEventListener("click", async (e) => {
+
+    if (
+        !e.target.classList.contains("move-up") &&
+        !e.target.classList.contains("move-down")
+    ) return;
+
+    const row = e.target.closest(".service-row");
+
+    const id = Number(row.dataset.id);
+    const category = row.dataset.category;
+    const sort = Number(row.dataset.sort);
+
+    const direction = e.target.classList.contains("move-up") ? -1 : 1;
+
+    const { data, error } = await db
+        .from("pricing")
+        .select("*")
+        .eq("category", category)
+        .order("sort_order");
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    const index = data.findIndex(item => item.id === id);
+
+    const swapIndex = index + direction;
+
+    if (swapIndex < 0 || swapIndex >= data.length) return;
+
+    const current = data[index];
+    const target = data[swapIndex];
+
+    await db
+        .from("pricing")
+        .update({ sort_order: target.sort_order })
+        .eq("id", current.id);
+
+    await db
+        .from("pricing")
+        .update({ sort_order: current.sort_order })
+        .eq("id", target.id);
 
     loadPricing();
 
