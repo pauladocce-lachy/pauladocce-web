@@ -112,10 +112,6 @@ async function loadPricing() {
 
         <div class="row-actions">
 
-    <button class="move-up">⬆️</button>
-
-    <button class="move-down">⬇️</button>
-
     <button class="delete-btn">🗑️</button>
 
 </div>
