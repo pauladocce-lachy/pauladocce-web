@@ -29,6 +29,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     loadPricing();
 
+    loadPricing();
+
+const saveBtn = document.getElementById("saveAllBtn");
+
+if (saveBtn) {
+
+    saveBtn.addEventListener("click", savePricing);
+
+}
+
 });
 
 async function loadPricing() {
@@ -121,10 +131,6 @@ async function loadPricing() {
     });
 
 }
-
-const saveBtn = document.getElementById("saveAllBtn");
-
-saveBtn.addEventListener("click", savePricing);
 
 async function savePricing() {
 
